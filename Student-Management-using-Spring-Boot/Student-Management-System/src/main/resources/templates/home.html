@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css"> <!-- Link to external CSS file -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css">
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            AOS.init();
+        });
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+    </script>
+    <style>
+        .dark-mode {
+            background-color: #121212;
+            color: white;
+        }
+        .dark-mode .navbar {
+            background-color: #1f1f1f !important;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow-lg">
+        <div class="container">
+            <a class="navbar-brand" href="#">Student Management System</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item"><a class="nav-link" th:href="@{/home}">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/addstudent}">Add Student</a></li>
+                    <li class="nav-item"><a class="nav-link" th:href="@{/viewstudent}">View Student</a></li>
+                    <li class="nav-item"><a class="nav-link active" th:href="@{/searchstudent}">Search Student</a></li>
+                    
+                </ul>
+                <ul class="navbar-nav ms-auto">
+                    
+                    <li class="nav-item"><a class="nav-link" th:href="@{/logout}">logout</a></li>
+                    <li class="nav-item">
+                        <button class="btn btn-outline-light" onclick="toggleDarkMode()">Toggle Dark Mode</button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container my-5" data-aos="fade-up">
+        <h1 class="text-center text-primary">Welcome to Student Management System</h1>
+        <p class="text-center text-muted">Manage students, courses, and administrators easily.</p>
+        <div class="d-flex justify-content-center">
+            <a class="btn btn-success me-2" th:href="@{/addstudent}">Add Student</a>
+            <a class="btn btn-info" th:href="@{/viewstudent}">View Students</a>
+        </div>
+    </div>
+</body>
+</html>
